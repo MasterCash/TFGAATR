@@ -3,10 +3,10 @@ using System.Collections;
 
 public class GottaGoFast : MonoBehaviour
 {
-    public enum Direction { current, up, down, right, left, forward, back };
+    public enum Direction { up, down, right, left, forward, back };
     public Direction currentDir;
 
-    public int speed;
+    public float speed = 10000;
 	private GameObject player;
 	private Rigidbody rb;
     private Vector3 direction;
@@ -16,46 +16,39 @@ public class GottaGoFast : MonoBehaviour
 	{
         player = GameObject.Find("Ball");
 		rb = player.GetComponent<Rigidbody>();
-
-        switch(currentDir)
-        {
-            case Direction.current:
-                direction = Vector3.zero;
-                speed = 100;
-                break;
-            case Direction.up:
-                direction = new Vector3(0, 18, 0);
-                speed = 1;
-                break;
-            case Direction.down:
-                direction = new Vector3(0, -3768, 0);
-                speed = 1;
-                break;
-            case Direction.right:
-                direction = new Vector3(3768, 0, 0);
-                speed = 1;
-                break;
-            case Direction.left:
-                direction = new Vector3(-3768, 0, 0);
-                speed = 1;
-                break;
-            case Direction.forward:
-                direction = new Vector3(0, 0, 3768);
-                speed = 1;
-                break;
-            case Direction.back:
-                direction = new Vector3(0, 0, -3768);
-                speed = 1;
-                break;
-
-
-        }
 	}
 
 	void OnTriggerEnter (Collider col)
 	{
-		rb.AddForce ((transform.position + direction) * speed, ForceMode.Acceleration);
+        StateUpdate();
+        rb.velocity = Vector3.zero;
+		rb.AddForce (direction * speed);
 	
 	}
 
+    public void StateUpdate()
+    {
+        switch (currentDir)
+        {
+            case Direction.up:
+                direction = Vector3.up;
+                break;
+            case Direction.down:
+                direction = Vector3.down;
+                break;
+            case Direction.right:
+                direction = Vector3.right;
+                break;
+            case Direction.left:
+                direction = Vector3.left;
+                break;
+            case Direction.forward:
+                direction = Vector3.forward;
+                break;
+            case Direction.back:
+                direction = Vector3.back;
+                break;
+        }
+
+    }
 }
