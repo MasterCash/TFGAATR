@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 
 
-public class TimerScript : MonoBehaviour {
+public class TimerScript : MonoBehaviour
+{
 
 	CursorLockMode lockCursor = CursorLockMode.Locked;
 	CursorLockMode unlockCursor = CursorLockMode.None;
@@ -22,7 +23,6 @@ public class TimerScript : MonoBehaviour {
 	void Start ()
 	{
 		playerClock = GameObject.Find("TimerClockText").GetComponent<Text>();
-			
 	}
 
 	void Awake ()
@@ -64,7 +64,7 @@ public class TimerScript : MonoBehaviour {
 
 	void Timer ()
 	{
-		actualTime = Time.unscaledTime;
+		actualTime = Time.time;
 		if(Application.loadedLevelName == "Start Menu")
 		{
 			startTime = actualTime;

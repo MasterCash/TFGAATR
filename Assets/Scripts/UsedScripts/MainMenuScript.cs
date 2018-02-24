@@ -7,9 +7,6 @@ public class MainMenuScript : MonoBehaviour
     public enum MenuState { Main, Controls, Settings };
     private MenuState currentState;
     private bool canBowl = false;
-    public Slider vol;
-    public Button mute;
-    public GameObject music;
 
     GameObject MenuScreen, ControlsScreen, SettingsScreen, bowl;
 
@@ -86,6 +83,11 @@ public class MainMenuScript : MonoBehaviour
     public void OnSettings() { currentState = MenuState.Settings; }
 
     public void OnOk() { currentState = MenuState.Main; }
+
+    public void onReset()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 
     public void SkinOne ()
 	{
