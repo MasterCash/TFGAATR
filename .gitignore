@@ -1,4 +1,4 @@
-/[Ll]ibrary/
+/[Ll]ibrary/*
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
@@ -6,7 +6,7 @@
 /Assets/AssetStoreTools*
 /ProjectSettings/
 
-\[Ll]ibrary\
+\[Ll]ibrary\*
 \[Tt]emp\
 \[Oo]bj\
 \[Bb]uild\
