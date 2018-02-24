@@ -27,7 +27,13 @@ ehthumbs.db
 
 # Unity generated
 # ===============
-[Oo]bj/
-[Bb]uild
+UnityLockfile
 sysinfo.txt
 *.stackdump
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/ProjectSettings/
+/[Bb]uilds/
+/Assets/AssetStoreTools*
