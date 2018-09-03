@@ -2,20 +2,24 @@
 
 public class CameraMovement : MonoBehaviour
 {
-    public float sensitivity = 1.5f;
-    public float sensitivityY = 1f;
-    public float mouseY;
-    public float mouseX;
+    private float sensitivityX = 1.5f;
+    private float sensitivityY = 1f;
+    private float mouseY;
+    private float mouseX;
     GameObject vert;
-    public int inverter = -1;
+    private int inverter = -1;
+
     void Start()
     {
         vert = GameObject.Find("VerticalMovement");
+        sensitivityX = PlayerPrefs.GetFloat("sensitivityX");
+        sensitivityY = PlayerPrefs.GetFloat("sensitivityY");
+        inverter = PlayerPrefs.GetInt("invertMouse");
     }
 
     void LateUpdate()
     {
-        mouseX = Input.GetAxisRaw("Mouse X") * sensitivity;
+        mouseX = Input.GetAxisRaw("Mouse X") * sensitivityX;
         mouseY = Input.GetAxisRaw("Mouse Y") * sensitivityY;
         transform.position = GameObject.Find("Ball").transform.position;
         transform.Rotate(0, mouseX, 0, Space.Self);
